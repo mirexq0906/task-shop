@@ -1,0 +1,68 @@
+<template>
+  <button class="favorites-btn" @click.stop="addAndRemoveFavorites(product)">
+    <svg
+      width="32"
+      height="29"
+      viewBox="0 0 32 29"
+      :fill="
+        getFavoritesProductsKeys.includes(String(product.id)) ? 'red' : 'none'
+      "
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M29.1096 3.387C28.3521 2.63025 27.4528 2.02994 26.4629 1.62037C25.4731 1.21081 24.4121 1 23.3406 1C22.2691 1 21.2082 1.21081 20.2183 1.62037C19.2284 2.02994 18.3291 2.63025 17.5716 3.387L15.9996 4.95678L14.4276 3.387C12.8976 1.85914 10.8224 1.00079 8.65859 1.00079C6.4948 1.00079 4.41963 1.85914 2.8896 3.387C1.35956 4.91486 0.5 6.98708 0.5 9.1478C0.5 11.3085 1.35956 13.3807 2.8896 14.9086L4.46161 16.4784L15.9996 28L27.5376 16.4784L29.1096 14.9086C29.8674 14.1522 30.4686 13.2541 30.8787 12.2657C31.2889 11.2772 31.5 10.2178 31.5 9.1478C31.5 8.07785 31.2889 7.01838 30.8787 6.02992C30.4686 5.04147 29.8674 4.14339 29.1096 3.387V3.387Z"
+        :stroke="
+          getFavoritesProductsKeys.includes(String(product.id))
+            ? 'red'
+            : '#686868'
+        "
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </svg>
+    <span
+      v-if="text"
+      v-text="
+        getFavoritesProductsKeys.includes(String(product.id))
+          ? 'Добавлен в избранное'
+          : 'Добавить в избранное'
+      "
+    ></span>
+  </button>
+</template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import { mapGetters, mapMutations } from 'vuex';
+import { productInterface } from '../../interfaces';
+export default defineComponent({
+  props: {
+    product: {
+      type: Object as () => productInterface,
+      default: () => ({}),
+    },
+    text: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    ...mapGetters(['getFavoritesProductsKeys']),
+  },
+  methods: {
+    ...mapMutations(['addAndRemoveFavorites']),
+  },
+});
+</script>
+
+<style lang="scss" scoped>
+.favorites-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+}
+</style>
