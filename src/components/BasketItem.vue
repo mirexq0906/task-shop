@@ -16,11 +16,11 @@
     </div>
     <div class="basket-item__add">
       <button class="basket-item__minus" @click="decreaseCount(product.id)">
-        <my-image :srcImg="'../assets/minus.svg'" />
+        <my-image :srcImg="'minus.svg'" />
       </button>
       <span class="basket-item__count">{{ product.count }}</span>
       <button class="basket-item__plus" @click="increaseCount(product.id)">
-        <my-image :srcImg="'../assets/plus.svg'" />
+        <my-image :srcImg="'plus.svg'" />
       </button>
     </div>
     <div class="basket-item__controls">

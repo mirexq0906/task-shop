@@ -15,7 +15,7 @@
       "
     ></span>
     <span class="basket-btn__btn-icon">
-      <my-image :srcImg="'../assets/basket.svg'" />
+      <my-image :srcImg="'basket.svg'" />
     </span>
   </button>
 </template>

@@ -10,7 +10,7 @@
       @click.stop
     >
       <span class="modal__close" @click="closeModal">
-        <my-image :srcImg="'../../assets/icon-close.svg'" />
+        <my-image :srcImg="'icon-close.svg'" />
       </span>
       <slot></slot>
     </div>

@@ -15,7 +15,7 @@ const store = createStore({
       products: [
         {
           id: 1,
-          img: '../assets/product-1.png',
+          img: 'product-1.png',
           title: 'Товар 1',
           count: 1,
           price: 1120,
@@ -23,7 +23,7 @@ const store = createStore({
         },
         {
           id: 2,
-          img: '../assets/product-1.png',
+          img: 'product-1.png',
           title: 'Товар 2',
           count: 1,
           price: 3221,
@@ -31,7 +31,7 @@ const store = createStore({
         },
         {
           id: 3,
-          img: '../assets/product-1.png',
+          img: 'product-1.png',
           title: 'Товар 3',
           count: 1,
           price: 2122,
@@ -39,7 +39,7 @@ const store = createStore({
         },
         {
           id: 4,
-          img: '../assets/product-1.png',
+          img: 'product-1.png',
           title: 'Товар 4',
           count: 1,
           price: 4323,

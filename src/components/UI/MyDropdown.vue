@@ -6,7 +6,7 @@
       @click="() => (show = !show)"
     >
       {{ activeText }}
-      <my-image :srcImg="'../../assets/caret-down-fill.svg'"/>
+      <my-image :srcImg="'caret-down-fill.svg'"/>
     </div>
     <transition name="fade">
       <ul v-show="show" class="dropdown__list">

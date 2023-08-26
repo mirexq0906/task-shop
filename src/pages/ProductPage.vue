@@ -4,7 +4,7 @@
       <h2 class="title">Карточка товара</h2>
       <div class="product-page__row">
         <div class="product-page__img">
-          <my-image :srcImg="'../assets/1x4.png'" />
+          <my-image :srcImg="'1x4.png'" />
         </div>
         <div class="product-page__content">
           <div class="product-page__block-text">
