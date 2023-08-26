@@ -1,8 +1,11 @@
 <template>
-  <picture>
-    <source :srcSet="`./assets/${srcImg}`" type="image/webp" />
-    <img :src="`./assets/${srcImg}`" alt="#" />
-  </picture>
+  <template v-if="format !== 'svg'">
+    <picture>
+      <source :srcSet="`./assets/${formatWebp}`" type="image/webp" />
+      <img :src="`./assets/${srcImg}`" alt="#" />
+    </picture>
+  </template>
+  <img v-else :src="`./assets/${srcImg}`" alt="" />
 </template>
 
 <script lang="ts">
@@ -12,6 +15,22 @@ export default defineComponent({
     srcImg: {
       type: String,
       default: '',
+    },
+  },
+  data() {
+    return {
+      format: '' as string | undefined,
+      formatWebp: '' as string,
+    };
+  },
+  mounted() {
+    this.changeFormat();
+  },
+  methods: {
+    changeFormat(): void {
+      let result: string[] = this.srcImg.split('.');
+      this.format = result.pop();
+      this.formatWebp = result.join('') + '.webp';
     },
   },
 });
