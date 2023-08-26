@@ -1,7 +1,7 @@
 <template>
   <picture v-if="prod">
-    <source :srcSet="`${getSrc}.webp`" type="image/webp" />
-    <img :src="srcImg" alt="#" />
+    <source :srcSet="`./assets/${getSrcWebp}`" type="image/webp" />
+    <img :src="`./assets/${getSrc}`" alt="#" />
   </picture>
   <img v-else :src="srcImg" alt="" />
 </template>
@@ -21,10 +21,24 @@ export default defineComponent({
     };
   },
   computed: {
-    getSrc(): string {
-      const result = this.srcImg;
-      const lastIndex = result.lastIndexOf('.');
-      return result.substring(0, lastIndex);
+    getSrc(): string | undefined {
+      if (this.srcImg) {
+        const result = this.srcImg;
+        return result.split('/').pop();
+      }
+      return undefined;
+    },
+    getSrcWebp(): string {
+      const result: string | undefined = this.getSrc;
+      if (result === undefined) {
+        return '';
+      }
+      const format = result.split('/').pop();
+      if (format === 'svg') {
+        return result + '.svg';
+      } else {
+        return result + '.webp';
+      }
     },
   },
   methods: {},

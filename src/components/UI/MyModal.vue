@@ -10,7 +10,7 @@
       @click.stop
     >
       <span class="modal__close" @click="closeModal">
-        <img src="../../assets/icon-close.svg" alt="" />
+        <my-image :srcImg="'../../assets/icon-close.svg'" />
       </span>
       <slot></slot>
     </div>
@@ -46,7 +46,7 @@ export default defineComponent({
   overflow: auto;
   text-align: center;
   @media (max-width: 575px) {
-  padding: 20px 20px;
+    padding: 20px 20px;
   }
   &::before {
     content: '';

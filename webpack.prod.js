@@ -7,6 +7,7 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 module.exports = {
     mode: "production",
     entry: "./src/main.ts",
@@ -120,7 +121,15 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: "css/[name].min.css",
         }),
-
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: "./src/assets",
+                    to: "./assets"
+                },
+            ],
+        }),
+      
         new VueLoaderPlugin(),
         new ImageminWebpWebpackPlugin({
             config: [
